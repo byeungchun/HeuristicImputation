@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/hmli.iml" filepath="$PROJECT_DIR$/.idea/hmli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HeuristicImputation.iml" filepath="$PROJECT_DIR$/.idea/HeuristicImputation.iml" />
     </modules>
   </component>
 </project>
