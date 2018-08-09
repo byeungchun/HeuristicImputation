@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-HMLS time series data handler
-=============================
-
-"""
 
 import logging
 import pickle
@@ -24,7 +19,9 @@ logger.propagate = False
 
 
 def generate_normalized_df(cutoff_correlation, hdf5_file):
-    """Generate normalized time series dataframe
+    """
+    Generate normalized time series dataframe
+
     :param cutoff_correlation: remove similar series(highly correlated) more than 0.75 correlation coefficient
     :param hdf5_file:
     :return: Normalized dataframe
@@ -38,7 +35,9 @@ def generate_normalized_df(cutoff_correlation, hdf5_file):
 
 
 def exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing):
-    """HMLI executor
+    """
+    HMLI executor
+
     :param hdf5_file:
     :param cutoff_correlation:
     :param need_preprocessing:
@@ -60,7 +59,9 @@ def exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing):
 
 
 def save_final_result(lst_final_result, pickle_final_result):
-    """Save HMLI executor result to pickle format file
+    """
+    Save HMLI executor result to pickle format file
+
     :param lst_final_result:
     :param pickle_final_result:
     """
@@ -69,7 +70,9 @@ def save_final_result(lst_final_result, pickle_final_result):
 
 
 def draw_rmse_plot(lst_final_result):
-    """Draw rmse plot by iteration for all testing series
+    """
+    Draw rmse plot by iteration for all testing series
+
     :param lst_final_result:
     """
     for res in lst_final_result:

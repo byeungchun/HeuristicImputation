@@ -9,7 +9,9 @@ logger = logging.getLogger('HMLI')
 
 
 def resize_timeseries_data(df, start_date='2010-1-1', end_date='2017-12-1'):
-    """Remove any time series which has null observations from the dataframe
+    """
+    Remove any time series which has null observations from the dataframe
+
     Change data type to float
     :param df: BIS macro time series dataframe
     :param start_date: Start date
@@ -28,7 +30,9 @@ def resize_timeseries_data(df, start_date='2010-1-1', end_date='2017-12-1'):
 
 
 def thinout_highly_correlated_timeseries(df, correlation_cutoff=0.97):
-    """Remove similar series and remain low correlation series in the dataframe
+    """
+    Remove similar series and remain low correlation series in the dataframe
+
     :param df: BIS macro time series dataframe
     :param correlation_cutoff: cutoff to remove similar time series
     :return: ditinguished time series dataframe
@@ -51,7 +55,9 @@ def thinout_highly_correlated_timeseries(df, correlation_cutoff=0.97):
 
 
 def exec_value_normalization(df):
-    """Times series value normalization for machine learning method
+    """
+    Times series value normalization for machine learning method
+
     :param df: BIS macro time series dataframe
     :return: Normalized BIS macro time series dataframe
     """
@@ -63,7 +69,9 @@ def exec_value_normalization(df):
 
 
 def create_regress_variables(df_scaled, num_prediction_period=3):
-    """Create dependent and independent variables from BIS macro time series dataframe
+    """
+    Create dependent and independent variables from BIS macro time series dataframe
+
     :param df_scaled: Scaled BIS time series
     :param num_prediction_period: number of prediction observations
     :return: time series code, x variable set, y variables, y test values
@@ -78,7 +86,9 @@ def create_regress_variables(df_scaled, num_prediction_period=3):
 
 
 def create_regress_variables_with_missing_rate(df_scaled, missing_rate=0.1, idx_y=-1):
-    """Create dependent and independent variables through missing rate
+    """
+    Create dependent and independent variables through missing rate
+
     :param df_scaled: Scaled BIS time series
     :param missing_rate: Missing data rate
     :param idx_y: Column index number for y variable

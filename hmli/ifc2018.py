@@ -8,7 +8,9 @@ logger = logging.getLogger('HMLI')
 
 
 def exec_test_for_ifc2018(a_series_idx, df_scaled):
-    """Execusion to IFC2018 presentation test. It is 3,070 BIS macro time series
+    """
+    Execusion to IFC2018 presentation test. It is 3,070 BIS macro time series
+
     :param a_series_idx:
     :param df_scaled:
     :return: Summary report

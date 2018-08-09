@@ -11,7 +11,9 @@ logger = logging.getLogger('HMLI')
 
 
 def generate_chrom(var_x, map_chrom, num_chrom_per_pop, num_gene_per_chrom, lst_chrom_log, uniq_num_chrom):
-    """Create chromosome per each generations
+    """
+    Create chromosome per each generations
+
     :param var_x: Dependent variable candidates dataframe
     :param map_chrom: Chromosome container
     :param num_chrom_per_pop: Number of chromosomes in one population
@@ -50,7 +52,9 @@ def generate_chrom(var_x, map_chrom, num_chrom_per_pop, num_gene_per_chrom, lst_
 
 
 def fit_curve_through_linear_regression(train_x, train_y, test_x, test_y):
-    """Fitting curve through OLS regression and calculate MSE between test and actual values
+    """
+    Fitting curve through OLS regression and calculate MSE between test and actual values
+
     :param train_x:
     :param train_y:
     :param test_x:
@@ -65,7 +69,9 @@ def fit_curve_through_linear_regression(train_x, train_y, test_x, test_y):
 
 
 def fit_curve_through_support_vector_machine(train_x, train_y, test_x, test_y):
-    """itting curve through support vector machine and calculate MSE between test and actual values
+    """
+    itting curve through support vector machine and calculate MSE between test and actual values
+
     :param train_x:
     :param train_y:
     :param test_x:
@@ -80,7 +86,9 @@ def fit_curve_through_support_vector_machine(train_x, train_y, test_x, test_y):
 
 
 def remove_recessive_chromosome(map_mse, map_chrom, cutoff_rate):
-    """Remove recessive(high error value) chromosome
+    """
+    Remove recessive(high error value) chromosome
+
     :param map_mse: Mean square error array
     :param map_chrom: Chromosome array
     :param cutoff_rate:
@@ -92,7 +100,9 @@ def remove_recessive_chromosome(map_mse, map_chrom, cutoff_rate):
 
 
 def find_highly_correlate_series(df_scaled, ts_code, lst_missing_idx):
-    """Find most highly corredated series and calcluate MSE between y variable and the correlated series
+    """
+    Find most highly corredated series and calcluate MSE between y variable and the correlated series
+
     :param df_scaled:
     :param ts_code:
     :param lst_missing_idx:
