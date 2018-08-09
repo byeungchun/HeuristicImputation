@@ -3,8 +3,9 @@ import random
 import numpy as np
 from pandas import DataFrame
 from sklearn.preprocessing import MinMaxScaler
+import logging
 
-from hmli.model import logger
+logger = logging.getLogger('HMLI')
 
 
 def resize_timeseries_data(df, start_date='2010-1-1', end_date='2017-12-1'):

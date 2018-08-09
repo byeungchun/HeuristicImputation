@@ -5,8 +5,9 @@ import sys
 from pandas import DataFrame
 from sklearn import linear_model, svm
 from sklearn.metrics import mean_squared_error
+import logging
 
-from hmli.model import logger
+logger = logging.getLogger('HMLI')
 
 
 def generate_chrom(var_x, map_chrom, num_chrom_per_pop, num_gene_per_chrom, lst_chrom_log, uniq_num_chrom):

@@ -8,7 +8,7 @@ def load_bismacro_csv_into_dataframe(file_directory: str, csv_file: str) -> Data
     DBQL request is
         Tset = (BIS_MACRO)
 
-        Condition =	(	FREQ = "M" 			)
+        Condition =	(	FREQ = 'M' 			)
 
         Format = csv
         Format.date = excel
@@ -16,7 +16,7 @@ def load_bismacro_csv_into_dataframe(file_directory: str, csv_file: str) -> Data
         Format.doc.attributes.BIS.BIS_MACRO = (TITLE,BIS_UNIT,UNIT_MULT)
         dataDir =
     rawFile =
-    :param file_directory: r'C:\Users\by003457\workspace\data\ifc'
+    :param file_directory:
     :param csv_file: 'bismacromonthly.txt'
     :return: Monthly macro time seires DataFrame
     """
