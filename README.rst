@@ -8,5 +8,8 @@ HMLI: Heuristic Machine-learning Imputation
    :scale: 70%
    :alt: HMLI flow chart
 
+
 Features
 ------------
+
+* Genetic algorithm to find optimum dependent variables
