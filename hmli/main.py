@@ -18,7 +18,7 @@ logger.addHandler(consoleHandler)
 logger.propagate = False
 
 
-def generate_normalized_df(cutoff_correlation, hdf5_file):
+def generate_normalized_df(hdf5_file, cutoff_correlation):
     """
     Generate normalized time series dataframe
 
@@ -86,10 +86,10 @@ def draw_rmse_plot(lst_final_result):
 
 
 def main():
-    hdf5_file = r'C:\Users\by003457\workspace\data\ifc\bismacro.h5'
-    pickle_final_result = r'C:\Users\by003457\workspace\data\ifc\finalRes1.pickle'
+    hdf5_file = r'../data/mei.h5'
+    pickle_final_result = r'../output/finalRes1.pickle'
     cutoff_correlation = 0.97
-    need_preprocessing = False
+    need_preprocessing = True
 
     lst_final_result = exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing)
     save_final_result(lst_final_result, pickle_final_result)
