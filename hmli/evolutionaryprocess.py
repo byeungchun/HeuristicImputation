@@ -30,7 +30,7 @@ def generate_chrom(var_x, map_chrom, num_chrom_per_pop, num_gene_per_chrom, lst_
         set_gene = set(lst_gene)
         for i in range(100):
             if int(num_chrom_per_pop * 0.9) <= len(map_chrom):
-                break  # because mapChrom has enough chroms.
+                break  # because mapChrom has enough chroms.e
             else:
                 chrom = random.sample(set_gene, num_gene_per_chrom)
                 if chrom not in lst_chrom_log:

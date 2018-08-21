@@ -21,7 +21,7 @@ def resize_timeseries_data(df, start_date='2010-1-1', end_date='2017-12-1'):
     # Preprocessing 1 - save obs from Jan 2010 to Dec 2017
     df = df.loc[start_date:end_date]
     # Preprocessing 2 - remove TS have any missing values
-    df = df.applymap(lambda x: np.nan if x is None or len(x) == 0 else x)
+    df = df.applymap(lambda x: np.nan if (type(x) != float) and (x is None or len(x) == 0) else x)
     df = df.dropna(axis=1, how='any')
     df = df.astype(float)
     # Preprocessing 3 - remove TS all same values
