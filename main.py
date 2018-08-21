@@ -86,10 +86,10 @@ def draw_rmse_plot(lst_final_result):
 
 
 def main():
-    hdf5_file = r'../data/mei.h5'
-    pickle_final_result = r'../output/finalRes1.pickle'
+    hdf5_file = r'data/mei.h5'
+    pickle_final_result = r'output/finalRes1.pickle'
     cutoff_correlation = 0.97
-    need_preprocessing = True
+    need_preprocessing = False
 
     lst_final_result = exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing)
     save_final_result(lst_final_result, pickle_final_result)
