@@ -21,7 +21,7 @@ Using HMLI
 Edit data file location and evolutationary parameter in hmli.ini:
 
 Default parameter values
-* number of prediction observations: 12
+* `number of prediction observations: 12`_
 * number of genes per chromosome: 6
 * number of chromosomes per population: 10
 * number of populations: 100
