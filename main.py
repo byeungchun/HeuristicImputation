@@ -50,6 +50,8 @@ def exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing,p1,p2,p3,p4,p5,p
     if need_preprocessing:
         generate_normalized_df(hdf5_file, cutoff_correlation)
     df_scaled = load_monthly_time_series_from_hdf5(hdf5_file, 'scaledDf')
+    # Test
+    #for i in range(10):
     for i in range(df_scaled.shape[1]):
         lst_series_idx.append(i)
 
