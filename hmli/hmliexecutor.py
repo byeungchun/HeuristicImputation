@@ -7,7 +7,7 @@ import logging
 logger = logging.getLogger('HMLI')
 
 
-def exec_test_for_ifc2018(a_series_idx, df_scaled):
+def execute_hmli(a_series_idx, df_scaled, p1, p2, p3, p4, p5, p6, p7):
     """
     Execusion to IFC2018 presentation test. It is 3,070 BIS macro time series
 
@@ -15,16 +15,16 @@ def exec_test_for_ifc2018(a_series_idx, df_scaled):
     :param df_scaled:
     :return: Summary report
     """
-    num_prediction_period = 12
-    num_gene_per_chrom = 6
-    num_chrom_per_pop = 10
-    num_population = 100
-    cutoff_chrom_drop_rate = 0.5
-    lst_random_seed = [1, 2, 3]
+    num_prediction_period = p1  # 12
+    num_gene_per_chrom = p2  # 6
+    num_chrom_per_pop = p3  # 10
+    num_population = p4  # 100
+    cutoff_chrom_drop_rate = p5  # 0.5
+    lst_random_seed = p6  # [1, 2, 3]
     lst_res = list()
     for numSeed in lst_random_seed:
         random.seed(numSeed)
-        for missing_rate in [0.1, 0.4, 0.7]:
+        for missing_rate in p7:  # [0.1, 0.4, 0.7]:
             ts_code, var_x, train_y, test_y, lst_missing_idx = \
                 create_regress_variables_with_missing_rate(df_scaled, missing_rate, a_series_idx)
             logger.info('Variable Y: %s, missingRate: %f', df_scaled.columns[a_series_idx], missing_rate)

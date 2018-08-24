@@ -2,13 +2,15 @@
 
 import logging
 import pickle
+import json
 import concurrent.futures
 import matplotlib.pyplot as plt
+from configparser import ConfigParser
 from itertools import repeat
 
 from hmli.datahandler import save_dataframe_to_hdf5, load_monthly_time_series_from_hdf5
 from hmli.datapreprosessor import resize_timeseries_data, thinout_highly_correlated_timeseries, exec_value_normalization
-from hmli.ifc2018 import exec_test_for_ifc2018
+from hmli.hmliexecutor import execute_hmli
 
 logger = logging.getLogger('HMLI')
 logger.setLevel(logging.INFO)
@@ -34,7 +36,7 @@ def generate_normalized_df(hdf5_file, cutoff_correlation):
     return df_scaled
 
 
-def exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing):
+def exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing,p1,p2,p3,p4,p5,p6,p7):
     """
     HMLI executor
 
@@ -52,7 +54,8 @@ def exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing):
         lst_series_idx.append(i)
 
     with concurrent.futures.ProcessPoolExecutor() as executor:
-        for res in executor.map(exec_test_for_ifc2018, lst_series_idx, repeat(df_scaled)):
+        for res in executor.map(execute_hmli, lst_series_idx, repeat(df_scaled),repeat(p1),repeat(p2),
+                                repeat(p3), repeat(p4),repeat(p5),repeat(p6),repeat(p7)):
             lst_final_result.append(res)
 
     return lst_final_result
@@ -86,12 +89,22 @@ def draw_rmse_plot(lst_final_result):
 
 
 def main():
-    hdf5_file = r'data/mei.h5'
-    pickle_final_result = r'output/finalRes1.pickle'
-    cutoff_correlation = 0.97
+    config = ConfigParser()
+    config.read('hmli.ini')
+    p1 = config.getint('ModelParameter', 'number of prediction observations')
+    p2 = config.getint('ModelParameter', 'number of genes per chromosome')
+    p3 = config.getint('ModelParameter', 'number of chromosomes per population')
+    p4 = config.getint('ModelParameter', 'number of populations')
+    p5 = config.getfloat('ModelParameter', 'cutoff rate of bad chromosome')
+    p6 = json.loads(config.get('ModelParameter', 'random seed list'))
+    p7 = json.loads(config.get('ModelParameter', 'missing rate list'))
+
+    hdf5_file = config.get('ModelParameter', 'hdf5 data file') #r'data/mei.h5'
+    pickle_final_result = config.get('ModelParameter', 'result file') #r'output/finalRes1.pickle'
+    cutoff_correlation = config.getfloat('ModelParameter','cutoff correlation coefficient') # 0.97
     need_preprocessing = False
 
-    lst_final_result = exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing)
+    lst_final_result = exec_hmli(hdf5_file, cutoff_correlation, need_preprocessing,p1,p2,p3,p4,p5,p6,p7)
     save_final_result(lst_final_result, pickle_final_result)
     # draw_rmse_plot(lst_final_result)
 
